@@ -1,0 +1,345 @@
+---
+import Card from "@components/base/Card.astro";
+import { Image } from "astro:assets";
+import Thomo from '../../../../../public/img/Philips-iCT.png' 
+import kornealnyj from '../../../../../public/img/kornealnyj-topograf-tms-4n.png' 
+import retrakcionnaya from '../../../../../public/img/retrakcionnaya-sistema-doro-luna.png' 
+import ehlektrogidravlicheskij from '../../../../../public/img/ehlektrogidravlicheskij-operacionnyj-stol-hybase-6100.png' 
+import otsasyvatel from '../../../../../public/img/otsasyvatel-hirurgicheskij-vacuson-18.png' 
+import inkubator from '../../../../../public/img/inkubator-transformer-drager-babyleo-tn500.png' 
+
+type cards = {
+  catergory: string
+  title: string
+  img: ImageMetadata
+  text: string
+  contry: string
+  availability: string
+  rating: string
+}
+
+const cards:cards[] = [
+  {
+    catergory: 'tomo',
+    title: 'Компьютерный томограф Philips iCT Family',
+    img: Thomo,
+    text: 'Описание какое-то описание какое-то описание какое-то описание какое-то описание описание описание',
+    contry: 'Германия',
+    availability: '🟢 В наличии',
+    rating: '4.8',
+  },
+  {
+    catergory: 'oftal',
+    title: 'Корнеальный топограф TMS-4N',
+    img: kornealnyj,
+    text: 'Описание какое-то описание какое-то описание какое-то описание какое-то описание описание описание',
+    contry: 'Германия',
+    availability: '🟢 В наличии',
+    rating: '5',
+  },
+  {
+    catergory: 'neurology',
+    title: 'Ретракционная система DORO LUNA',
+    img: retrakcionnaya,
+    text: 'Описание какое-то описание какое-то описание какое-то описание какое-то описание описание описание',
+    contry: 'Германия',
+    availability: '🟢 В наличии',
+    rating: '4',
+  },
+  {
+    catergory: 'acush',
+    title: 'Электрогидравлический операционный стол HyBase 6100',
+    img: ehlektrogidravlicheskij,
+    text: 'Описание какое-то описание какое-то описание какое-то описание какое-то описание описание описание',
+    contry: 'Германия',
+    availability: '🟢 В наличии',
+    rating: '4.9',
+  },
+  {
+    catergory: 'hirurg',
+    title: 'Отсасыватель хирургический Vacuson 18',
+    img: otsasyvatel,
+    text: 'Описание какое-то описание какое-то описание какое-то описание какое-то описание описание описание',
+    contry: 'Германия',
+    availability: '🟢 В наличии',
+    rating: '5',
+  },
+  {
+    catergory: 'neonat',
+    title: 'Инкубатор-трансформер Drager Babyleo® TN500',
+    img: inkubator,
+    text: 'Описание какое-то описание какое-то описание какое-то описание какое-то описание описание описание',
+    contry: 'Германия',
+    availability: '🟢 В наличии',
+    rating: '5',
+  },
+]
+---
+
+<div class="grid md:grid-cols-3 ltablet:grid-cols-3 lg:grid-cols-4 gap-x-6 ptablet:gap-x-4 gap-y-16 pt-10">
+
+  <div x-show="activeCategory === 'all' || activeCategory === 'tomo'">
+    <Card class="'p-4 group'">
+      <div
+        class="relative w-full h-40 rounded-lg bg-muted-200 dark:bg-muted-800"
+      >
+        <Image class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-[220px] ptablet:max-w-[220px] group-hover:scale-125 transition duration-200" src={cards[0].img} alt={cards[0].title} />
+      </div>
+      <div class="font-sans mt-3">
+        <h4 class="font-semibold text-muted-800 dark:text-muted-100">
+          {cards[0].title}
+        </h4>
+        <p class="text-sm text-muted-400">Компьютерная томография</p>
+      </div>
+      <div class="mt-2">
+        <p class="text-sm ptablet:text-xs text-muted-500 dark:text-muted-400">
+          {cards[0].text}
+        </p>
+      </div>
+      <div class="flex items-center justify-between font-sans mt-3">
+        <div class="flex items-center gap-2">
+          <button
+            tooltip={cards[0].availability}
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="hugeicons:delivery-tracking-02"></iconify-icon>
+          </button>
+          <button
+            tooltip=`Страна изготовитель: ${cards[0].contry}`
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="gis:search-country"></iconify-icon>
+          </button>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <iconify-icon class="iconify w-4 h-4 text-yellow-400" icon="uiw:star-on"></iconify-icon>
+          <span class="font-semibold text-xs text-muted-500 dark:text-muted-400"
+            >{cards[0].rating}</span
+          >
+        </div>
+        <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
+      </div>
+    </Card>
+  </div>
+
+  <div x-show="activeCategory === 'all' || activeCategory === 'oftal'">
+    <Card class="'p-4 group'">
+      <div
+        class="relative w-full h-40 rounded-lg bg-muted-200 dark:bg-muted-800"
+      >
+        <Image class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-[220px] ptablet:max-w-[220px] group-hover:scale-125 transition duration-200" src={cards[1].img} alt={cards[1].title} />
+      </div>
+      <div class="font-sans mt-3">
+        <h4 class="font-semibold text-muted-800 dark:text-muted-100">
+          {cards[1].title}
+        </h4>
+        <p class="text-sm text-muted-400">Компьютерная томография</p>
+      </div>
+      <div class="mt-2">
+        <p class="text-sm ptablet:text-xs text-muted-500 dark:text-muted-400">
+          {cards[1].text}
+        </p>
+      </div>
+      <div class="flex items-center justify-between font-sans mt-3">
+        <div class="flex items-center gap-2">
+          <button
+            tooltip={cards[1].availability}
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="hugeicons:delivery-tracking-02"></iconify-icon>
+          </button>
+          <button
+            tooltip=`Страна изготовитель: ${cards[1].contry}`
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="gis:search-country"></iconify-icon>
+          </button>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <iconify-icon class="iconify w-4 h-4 text-yellow-400" icon="uiw:star-on"></iconify-icon>
+          <span class="font-semibold text-xs text-muted-500 dark:text-muted-400"
+            >{cards[1].rating}</span
+          >
+        </div>
+        <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
+      </div>
+    </Card>
+  </div>
+
+  <div x-show="activeCategory === 'all' || activeCategory === 'neurology'">
+    <Card class="'p-4 group'">
+      <div
+        class="relative w-full h-40 rounded-lg bg-muted-200 dark:bg-muted-800"
+      >
+        <Image class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-[220px] ptablet:max-w-[220px] group-hover:scale-125 transition duration-200" src={cards[2].img} alt={cards[2].title} />
+      </div>
+      <div class="font-sans mt-3">
+        <h4 class="font-semibold text-muted-800 dark:text-muted-100">
+          {cards[2].title}
+        </h4>
+        <p class="text-sm text-muted-400">Компьютерная томография</p>
+      </div>
+      <div class="mt-2">
+        <p class="text-sm ptablet:text-xs text-muted-500 dark:text-muted-400">
+          {cards[2].text}
+        </p>
+      </div>
+      <div class="flex items-center justify-between font-sans mt-3">
+        <div class="flex items-center gap-2">
+          <button
+            tooltip={cards[2].availability}
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="hugeicons:delivery-tracking-02"></iconify-icon>
+          </button>
+          <button
+            tooltip=`Страна изготовитель: ${cards[2].contry}`
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="gis:search-country"></iconify-icon>
+          </button>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <iconify-icon class="iconify w-4 h-4 text-yellow-400" icon="uiw:star-on"></iconify-icon>
+          <span class="font-semibold text-xs text-muted-500 dark:text-muted-400"
+            >{cards[2].rating}</span
+          >
+        </div>
+        <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
+      </div>
+    </Card>
+  </div>
+
+
+  <div x-show="activeCategory === 'all' || activeCategory === 'acush'">
+    <Card class="'p-4 group'">
+      <div
+        class="relative w-full h-40 rounded-lg bg-muted-200 dark:bg-muted-800"
+      >
+        <Image class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-[220px] ptablet:max-w-[220px] group-hover:scale-125 transition duration-200" src={cards[3].img} alt={cards[3].title} />
+      </div>
+      <div class="font-sans mt-3">
+        <h4 class="font-semibold text-muted-800 dark:text-muted-100">
+          {cards[3].title}
+        </h4>
+        <p class="text-sm text-muted-400">Компьютерная томография</p>
+      </div>
+      <div class="mt-2">
+        <p class="text-sm ptablet:text-xs text-muted-500 dark:text-muted-400">
+          {cards[3].text}
+        </p>
+      </div>
+      <div class="flex items-center justify-between font-sans mt-3">
+        <div class="flex items-center gap-2">
+          <button
+            tooltip={cards[3].availability}
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="hugeicons:delivery-tracking-02"></iconify-icon>
+          </button>
+          <button
+            tooltip=`Страна изготовитель: ${cards[3].contry}`
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="gis:search-country"></iconify-icon>
+          </button>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <iconify-icon class="iconify w-4 h-4 text-yellow-400" icon="uiw:star-on"></iconify-icon>
+          <span class="font-semibold text-xs text-muted-500 dark:text-muted-400"
+            >{cards[3].rating}</span
+          >
+        </div>
+        <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
+      </div>
+    </Card>
+  </div>
+
+  <div x-show="activeCategory === 'all' || activeCategory === 'hirurg'">
+    <Card class="'p-4 group'">
+      <div
+        class="relative w-full h-40 rounded-lg bg-muted-200 dark:bg-muted-800"
+      >
+        <Image class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-[220px] ptablet:max-w-[220px] group-hover:scale-125 transition duration-200" src={cards[4].img} alt={cards[4].title} />
+      </div>
+      <div class="font-sans mt-3">
+        <h4 class="font-semibold text-muted-800 dark:text-muted-100">
+          {cards[4].title}
+        </h4>
+        <p class="text-sm text-muted-400">Компьютерная томография</p>
+      </div>
+      <div class="mt-2">
+        <p class="text-sm ptablet:text-xs text-muted-500 dark:text-muted-400">
+          {cards[4].text}
+        </p>
+      </div>
+      <div class="flex items-center justify-between font-sans mt-3">
+        <div class="flex items-center gap-2">
+          <button
+            tooltip={cards[4].availability}
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="hugeicons:delivery-tracking-02"></iconify-icon>
+          </button>
+          <button
+            tooltip=`Страна изготовитель: ${cards[4].contry}`
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="gis:search-country"></iconify-icon>
+          </button>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <iconify-icon class="iconify w-4 h-4 text-yellow-400" icon="uiw:star-on"></iconify-icon>
+          <span class="font-semibold text-xs text-muted-500 dark:text-muted-400"
+            >{cards[4].rating}</span
+          >
+        </div>
+        <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
+      </div>
+    </Card>
+  </div>
+
+  <div x-show="activeCategory === 'all' || activeCategory === 'neonat'">
+    <Card class="'p-4 group'">
+      <div
+        class="relative w-full h-40 rounded-lg bg-muted-200 dark:bg-muted-800"
+      >
+        <Image class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-[220px] ptablet:max-w-[220px] group-hover:scale-125 transition duration-200" src={cards[5].img} alt={cards[5].title} />
+      </div>
+      <div class="font-sans mt-3">
+        <h4 class="font-semibold text-muted-800 dark:text-muted-100">
+          {cards[5].title}
+        </h4>
+        <p class="text-sm text-muted-400">Компьютерная томография</p>
+      </div>
+      <div class="mt-2">
+        <p class="text-sm ptablet:text-xs text-muted-500 dark:text-muted-400">
+          {cards[5].text}
+        </p>
+      </div>
+      <div class="flex items-center justify-between font-sans mt-3">
+        <div class="flex items-center gap-2">
+          <button
+            tooltip={cards[5].availability}
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="hugeicons:delivery-tracking-02"></iconify-icon>
+          </button>
+          <button
+            tooltip=`Страна изготовитель: ${cards[5].contry}`
+            class="h-8 w-8 rounded-full text-muted-400 hover:text-primary-500 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 flex items-center justify-center tw-accessiblity transition-colors duration-300"
+          >
+            <iconify-icon class="iconify w-4 h-4" icon="gis:search-country"></iconify-icon>
+          </button>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <iconify-icon class="iconify w-4 h-4 text-yellow-400" icon="uiw:star-on"></iconify-icon>
+          <span class="font-semibold text-xs text-muted-500 dark:text-muted-400"
+            >{cards[5].rating}</span
+          >
+        </div>
+        <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
+      </div>
+    </Card>
+  </div>
+</div>

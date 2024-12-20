@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import nenashli from '../../../public/img/screens/nenashli.jpg'
+import nenashlid from '../../../public/img/screens/nenashlid.jpg'
+---
+
+<div class="py-10">
+  <div class="w-full ltablet:max-w-4xl max-w-5xl mx-auto">
+    <div
+      class="bg-primary-900 rounded-3xl shadow-xl overflow-hidden ltablet:grid ltablet:grid-cols-2 ltablet:gap-4 lg:grid lg:grid-cols-2 lg:gap-4"
+    >
+      <div
+        class="flex items-center pt-10 pb-12 px-6 sm:pt-16 sm:px-16 ltablet:py-20 ltablet:pr-0 lg:py-20 lg:pr-0 xl:px-20"
+      >
+        <div class="ltablet:self-center lg:self-center font-sans">
+          <h2 class="text-3xl font-medium text-white sm:text-4xl">
+            <span class="block">Не нашли нужного?</span>
+          </h2>
+          <p class="mt-4 text-lg leading-6 text-white">
+            Оставьте заявку и мы вам поможем
+          </p>
+          <a
+            href="#"
+            class="mt-8 bg-white border border-transparent rounded-xl shadow px-6 py-4 inline-flex items-center text-sm font-medium text-muted-600 hover:text-white hover:bg-primary-400 transition-colors duration-300"
+          >
+            Свяжитесь со мной
+          </a>
+        </div>
+      </div>
+      <div class="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
+        <Image class="block dark:hidden translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 ltablet:translate-y-20 lg:translate-y-20" src={nenashli} alt="Cta image" />
+        <Image class="hidden dark:block translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 ltablet:translate-y-20 lg:translate-y-20" src={nenashlid} alt="Cta image" />
+      </div>
+    </div>
+  </div>
+</div>

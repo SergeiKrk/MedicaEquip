@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import Img1 from '../../../public/img/illustrations/1.png' 
+import Img2 from '../../../public/img/illustrations/2.png' 
+import Img3 from '../../../public/img/illustrations/3.png' 
+import Img4 from '../../../public/img/illustrations/4.png' 
+import Img5 from '../../../public/img/illustrations/5.png' 
+import Img6 from '../../../public/img/illustrations/6.png' 
+import Img7 from '../../../public/img/illustrations/7.png' 
+import Img8 from '../../../public/img/illustrations/8.png' 
+
+const equipment = [
+  {img:Img1, alt:'оборудование 1'},
+  {img:Img2, alt:'оборудование 2'},
+  {img:Img3, alt:'оборудование 3'},
+  {img:Img4, alt:'оборудование 4'},
+  {img:Img7, alt:'оборудование 7'},
+  {img:Img8, alt:'оборудование 8'},
+]
+---
+
+<div
+  class="hidden md:block ptablet:scale-90 ltablet:scale-90 absolute -bottom-12 left-8 bg-white dark:bg-muted-800 border border-muted-200 dark:border-muted-700 rounded-xl p-5 shadow-xl shadow-muted-400/10 dark:shadow-muted-800/10"
+>
+  <div class="flex justify-between mb-4">
+    <h3 class="font-heading font-medium text-muted-800 dark:text-muted-100">
+      Продажа медицинского оборудования
+    </h3>
+  </div>
+  <div class="flex justify-between items-center gap-4">
+    {equipment.map((eq)=>(
+    <div class="bg-[#f1f5f9] p-2 rounded-2xl mr-2">
+      <Image src={eq.img}
+      class="object-cover w-12 h-12 mask mask-blob"
+    alt={eq.alt}
+    width="48"
+    height="48" />
+    </div>
+    ))}
+  </div>
+</div>
