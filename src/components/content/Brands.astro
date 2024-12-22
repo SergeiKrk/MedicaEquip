@@ -1,0 +1,115 @@
+---
+import SectionMuted from "@components/section/SectionMuted.astro";
+import Container from "@components/section/Container.astro";
+import SectionTitle from "@components/section/SectionTitle.astro";
+import { Image } from "astro:assets";
+
+import Acutronic from "../../pic/Acutronic.png";
+import AOHUA from "../../pic/AOHUA.png";
+import AtomMedical from "../../pic/AtomMedical.png";
+import Blossom from "../../pic/Blossom.png";
+import Bowa from "../../pic/Bowa.png";
+import Erba from "../../pic/Erba.png";
+import FreseniusKabi from "../../pic/FreseniusKabi.png";
+import Intersurgical from "../../pic/Intersurgical.png";
+import KLSMartin from "../../pic/KLSMartin.png";
+import Medin from "../../pic/Medin.png";
+import Medtronic from "../../pic/Medtronic.png";
+import Philips from "../../pic/Philips.png";
+import Samsung from "../../pic/Samsung.png";
+
+type technology = [
+  img:any,
+  alt:string,
+]
+
+const technology = [
+  {
+    img: Acutronic,
+    alt: "Acutronic",
+  },
+  {
+    img: AOHUA,
+    alt: "AOHUA",
+  },
+  {
+    img: AtomMedical,
+    alt: "AtomMedical",
+  },
+  {
+    img: Blossom,
+    alt: "Blossom",
+  },
+  {
+    img: Bowa,
+    alt: "Bowa",
+  },
+  {
+    img: Erba,
+    alt: "Erba",
+  },
+  {
+    img: FreseniusKabi,
+    alt: "FreseniusKabi",
+  },
+  {
+    img: Intersurgical,
+    alt: "Intersurgical",
+  },
+  {
+    img: KLSMartin,
+    alt: "KLSMartin",
+  },
+  {
+    img: Medin,
+    alt: "Medin",
+  },
+  {
+    img: Medtronic,
+    alt: "Medtronic",
+  },
+  {
+    img: Philips,
+    alt: "Philips",
+  },
+  {
+    img: Samsung,
+    alt: "Samsung",
+  },
+];
+---
+
+<SectionMuted id="brands">
+    <Container>
+    <SectionTitle
+        title="Производители, с которыми мы работаем"
+        minititle="Поставщики"
+      />
+    <div class="relative flex overflow-x-hidden mb-8">
+      <div class="py-12 animate-marquee whitespace-nowrap">
+        {
+          technology.map((tec) => {
+            return (
+              <span  class="inline-block w-[150px] lg:w-[190px]">
+                <Image src={tec.img} alt={tec.alt} class="w-[100px] lg:w-[150px] hover:scale-125 transition duration-300 ease-in-out" loading="eager" />
+              </span>
+            )
+          })
+        }
+      </div>
+      <div class="absolute top-0 py-12 animate-marquee2 whitespace-nowrap">
+        {
+          technology.map((tec) => {
+            return (
+            <span  class="inline-block w-[150px] lg:w-[190px]">
+                <Image src={tec.img} alt={tec.alt} class="w-[100px] lg:w-[150px] hover:scale-125 transition duration-300 ease-in-out" loading="eager" />
+              </span>
+            )
+          })
+        }
+      </div>
+  
+    
+</Container>
+</Section>
+

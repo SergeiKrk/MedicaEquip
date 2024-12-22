@@ -12,10 +12,80 @@ import SideStatsLeft from "@components/content/features/SideStatsLeft.astro";
 import Pricing from "@components/content/Pricing.astro";
 import Cta from "@components/content/Cta.astro";
 import Testimonials from "@components/content/Testimonials.astro";
+import Brands from "@components/content/Brands.astro";
+import Features from "@components/content/FeaturesNavs.astro";
 ---
 
 <Layout title="Продажа медицинского оборудования и расходных материалов для клиник | MedicaEquip">
   <HeroMain />
+
+  <div class="bg-muted-100 dark:bg-muted-1000 pb-32">
+    <Container>
+      <!-- Icon Blocks -->
+<div class="max-w-[85rem] px-4 md:px-0 py-10 lg:py-14 mx-auto">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-12">
+    <!-- Icon Block -->
+    <div>
+      <svg class="shrink-0 size-9 text-primary-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="currentColor" d="M7 18c1.1 0 2 .9 2 2s-.9 2-2 2s-2-.9-2-2s.9-2 2-2m10 0c1.1 0 2 .9 2 2s-.9 2-2 2s-2-.9-2-2s.9-2 2-2m-9.8-3.2c0 .1.1.2.2.2H19v2H7c-1.1 0-2-.9-2-2c0-.4.1-.7.2-1l1.3-2.4L3 4H1V2h3.3l4.3 9h7l3.9-7l1.7 1l-3.9 7c-.3.6-1 1-1.7 1H8.1l-.9 1.6zM9.4 1c.8 0 1.4.6 1.4 1.4s-.6 1.4-1.4 1.4S8 3.2 8 2.4S8.7 1 9.4 1m5.2 8c-.8 0-1.4-.6-1.4-1.4s.6-1.4 1.4-1.4s1.4.6 1.4 1.4S15.3 9 14.6 9M9.2 9L8 7.8L14.8 1L16 2.2z"/></svg>
+      
+      <div class="bg-gradient-to-r from-gray-200 via-gray-50 to-transparent h-0.5 mt-6 dark:from-neutral-700 dark:via-neutral-900">
+        <div class="bg-primary-500 w-9 h-0.5 dark:bg-neutral-600"></div>
+      </div>
+      <div class="mt-5">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Более 10 лет</h3>
+        <p class="mt-1 text-gray-600 dark:text-neutral-400">Опыт работы в сфере медтехники</p>
+      </div>
+    </div>
+    <!-- End Icon Block -->
+
+    <!-- Icon Block -->
+    <div>
+      <svg class="shrink-0 size-9 text-primary-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="currentColor" d="M4 19h2v-8h12v8h2V8.35l-8-3.2l-8 3.2zm-2 2V7l10-4l10 4v14h-6v-8H8v8zm7 0v-2h2v2zm2-3v-2h2v2zm2 3v-2h2v2zM6 11h12z"/></svg>
+      
+      <div class="bg-gradient-to-r from-gray-200 via-gray-50 to-transparent h-0.5 mt-6 dark:from-neutral-700 dark:via-neutral-900">
+        <div class="bg-primary-500 w-9 h-0.5 dark:bg-neutral-600"></div>
+      </div>
+      <div class="mt-5">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">2 000 м² склад</h3>
+        <p class="mt-1 text-gray-600 dark:text-neutral-400">50 000 единиц товара ежедневно в наличии</p>
+      </div>
+    </div>
+    <!-- End Icon Block -->
+
+    <!-- Icon Block -->
+    <div>
+      <svg class="shrink-0 size-9 text-primary-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="currentColor" d="M21.71 8.71c1.25-1.25.68-2.71 0-3.42l-3-3c-1.26-1.25-2.71-.68-3.42 0L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59v4l-.71.7c-1.25 1.26-.68 2.71 0 3.42l3 3c.54.54 1.12.74 1.67.74c.71 0 1.36-.35 1.75-.74l2.7-2.71H15c1.7 0 2.56-1.06 2.87-2.1c1.13-.3 1.75-1.16 2-2C21.42 14.5 22 13.03 22 12V9h-.59zM20 12c0 .45-.19 1-1 1h-1v1c0 .45-.19 1-1 1h-1v1c0 .45-.19 1-1 1h-4.41l-3.28 3.28c-.31.29-.49.12-.6.01l-2.99-2.98c-.29-.31-.12-.49-.01-.6L5 15.41v-4l2-2V11c0 1.21.8 3 3 3s3-1.79 3-3h7zm.29-4.71L18.59 9H11v2c0 .45-.19 1-1 1s-1-.55-1-1V8c0-.46.17-2 2-2h3.41l2.28-2.28c.31-.29.49-.12.6-.01l2.99 2.98c.29.31.12.49.01.6"/></svg>
+     
+      <div class="bg-gradient-to-r from-gray-200 via-gray-50 to-transparent h-0.5 mt-6 dark:from-neutral-700 dark:via-neutral-900">
+        <div class="bg-primary-500 w-9 h-0.5 dark:bg-neutral-600"></div>
+      </div>
+      <div class="mt-5">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">1 000 сделок/мес.</h3>
+        <p class="mt-1 text-gray-600 dark:text-neutral-400">Продажа от 1 штуки по оптовым ценам</p>
+      </div>
+    </div>
+    <!-- End Icon Block -->
+
+    <!-- Icon Block -->
+    <div>
+      <svg class="shrink-0 size-9 text-primary-600 dark:text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><g fill="none"><path fill="currentColor" d="M2 3V2a1 1 0 0 0-1 1zm11 0h1a1 1 0 0 0-1-1zm0 6V8a1 1 0 0 0-1 1zM2 4h11V2H2zm10-1v16h2V3zM3 17V3H1v14zm10-7h5V8h-5zm8 3v4h2v-4zm-7 6V9h-2v10zm4.707.707a1 1 0 0 1-1.414 0l-1.414 1.414a3 3 0 0 0 4.242 0zm-1.414-1.414a1 1 0 0 1 1.414 0l1.414-1.414a3 3 0 0 0-4.242 0zM6.707 19.707a1 1 0 0 1-1.414 0l-1.414 1.414a3 3 0 0 0 4.242 0zm-1.414-1.414a1 1 0 0 1 1.414 0l1.414-1.414a3 3 0 0 0-4.242 0zm13.414 0c.196.195.293.45.293.707h2c0-.766-.293-1.536-.879-2.121zM19 19a1 1 0 0 1-.293.707l1.414 1.414A3 3 0 0 0 21 19zm-3-1h-3v2h3zm1.293 1.707A1 1 0 0 1 17 19h-2c0 .766.293 1.536.879 2.121zM17 19a1 1 0 0 1 .293-.707l-1.414-1.414A3 3 0 0 0 15 19zm-11.707.707A1 1 0 0 1 5 19H3c0 .766.293 1.536.879 2.121zM5 19a1 1 0 0 1 .293-.707l-1.414-1.414A3 3 0 0 0 3 19zm8-1H8v2h5zm-6.293.293c.196.195.293.45.293.707h2c0-.766-.293-1.536-.879-2.121zM7 19a1 1 0 0 1-.293.707l1.414 1.414A3 3 0 0 0 9 19zm14-2a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3zm-3-7a3 3 0 0 1 3 3h2a5 5 0 0 0-5-5zM1 17a3 3 0 0 0 3 3v-2a1 1 0 0 1-1-1z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 8h3m-3 4h5"/></g></svg>
+      
+      <div class="bg-gradient-to-r from-gray-200 via-gray-50 to-transparent h-0.5 mt-6 dark:from-neutral-700 dark:via-neutral-900">
+        <div class="bg-primary-500 w-9 h-0.5 dark:bg-neutral-600"></div>
+      </div>
+      <div class="mt-5">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Доставка по РФ</h3>
+        <p class="mt-1 text-gray-600 dark:text-neutral-400">Бесплатная доставка по Москве до ТК</p>
+      </div>
+    </div>
+    <!-- End Icon Block -->
+  </div>
+</div>
+<!-- End Icon Blocks -->
+    </Container>
+  </div>
+
+  <Brands />
 
   <SectionMuted>
     <Container>
@@ -128,6 +198,12 @@ import Testimonials from "@components/content/Testimonials.astro";
     </Container>
   </SectionMuted>
 
+  <SectionMuted class="'border-b border-muted-200 dark:border-muted-800'">
+    <Container>
+      <Features />
+    </Container>
+  </SectionMuted>
+
   <SectionMuted class="'overflow-hidden'">
     <Container>
       <div class="py-10">
@@ -137,19 +213,7 @@ import Testimonials from "@components/content/Testimonials.astro";
     </Container>
   </SectionMuted>
 
-  <SectionMuted>
-    <Container>
-      <SectionTitle
-        title="Pricing Options"
-        subtitle="описание описание описание описание описание описание описание описание "
-        minititle="Simple Pricing"
-        class="'mx-auto text-center'"
-      />
-      <Pricing />
-    </Container>
-  </SectionMuted>
-
-  <SectionMuted>
+  <SectionMuted id="otziv">
     <Container>
       <SectionTitle
         title="Вот, что говорят о нас клиенты"
