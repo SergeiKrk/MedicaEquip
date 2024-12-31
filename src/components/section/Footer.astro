@@ -29,26 +29,26 @@ import Logo from "@components/base/Logo.astro";
         <div class="w-full mb-10 ltablet:mb-0 lg:mb-0 ltablet:w-2/6 lg:w-3/6 px-4">
           
           <div class="font-bold text-lg mb-8 dark:text-gray-50">Заказать обратный звонок</div>
-            <div class="w-full ltablet:w-auto lg:w-auto flex flex-col md:flex-row items-center justify-center md:justify-start gap-y-2">
-            <div class="relative w-full sm:w-64 md:w-40 sm:mr-4 mr-2">
-              <input
-                type="text"
-                class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
-                placeholder="Имя"
-              />
-            </div>
-            <div class="relative w-full sm:w-64 md:w-40 sm:mr-4 mr-2">
-              <input
-                type="text"
-                class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
-                placeholder="+7 999 999 99 99"
-              />
-            </div>
-            <button
-              class="w-full md:w-auto h-10 inline-flex items-center justify-center text-white bg-primary-600 border-0 py-2 px-6 focus:outline-none hover:bg-primary-700 rounded-lg"
-              >Заказать</button
-            >
-          </div>
+            <form class="w-full ltablet:w-auto lg:w-auto flex flex-col md:flex-row items-center justify-center md:justify-start gap-y-2">
+              <div class="relative w-full sm:w-64 md:w-40 sm:mr-4 mr-2">
+                <input
+                  type="text"
+                  class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                  placeholder="Имя"
+                />
+              </div>
+              <div class="relative w-full sm:w-64 md:w-40 sm:mr-4 mr-2">
+                <input
+                  type="text"
+                  class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                  placeholder="+7 999 999 99 99"
+                />
+              </div>
+              <button
+                class="w-full md:w-auto h-10 inline-flex items-center justify-center text-white bg-primary-600 border-0 py-2 px-6 focus:outline-none hover:bg-primary-700 rounded-lg"
+                >Заказать</button
+              >
+            </form>
         </div>
         <div class="w-full mb-10 ltablet:mb-0 lg:mb-0 ltablet:w-2/6 lg:w-1/6 px-4">
           <span

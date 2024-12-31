@@ -1,0 +1,121 @@
+---
+const {name} = Astro.props
+---
+<button class="relative font-sans font-normal inline-flex items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 h-12 px-5 py-3 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition-all duration-300 min-w-[130px]" onclick="openModal('modelConfirm')">
+    Запросить КП
+ </button>
+ 
+ <div id="modelConfirm" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
+     <div class="relative mt-[25%] lg:mt-[15%] mx-auto shadow-xl rounded-md bg-white max-w-xs">
+ 
+         <div class="flex justify-end p-2">
+             <button onclick="closeModal('modelConfirm')" type="button"
+                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd"
+                         d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                         clip-rule="evenodd"></path>
+                 </svg>
+             </button>
+         </div>
+ 
+         <div class="p-6 pt-0 text-center">
+            <form class="w-full ltablet:w-auto lg:w-auto flex flex-col items-center justify-center md:justify-start gap-y-2" name={name}>
+                <div class="relative w-full">
+                  <input
+                    type="text"
+                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    placeholder="Имя"
+                    name="Name"
+                  />
+                </div>
+                <div class="relative w-full">
+                  <input
+                    type="number"
+                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    placeholder="+7 999 999 99 99"
+                    name="Phone"
+                  />
+                </div>
+                <div class="relative w-full">
+                  <input
+                    type="email"
+                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    placeholder="Ваша почта"
+                    name="Mail"
+                  />
+                </div>
+                <div class="relative w-full">
+                  <input
+                    type="text"
+                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    placeholder="Город"
+                    name="Cite"
+                  />
+                </div>
+                <div class="relative w-full">
+                  <input
+                    type="text"
+                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    placeholder="ИНН"
+                    name="INN"
+                  />
+                </div>
+                <button
+                  class="w-full h-10 inline-flex items-center justify-center text-white bg-primary-600 border-0 py-2 px-6 focus:outline-none hover:bg-primary-700 rounded-lg"
+                  >Заказать</button
+                >
+              </form>
+         </div>
+ 
+     </div>
+ </div>
+ 
+ <script type="text/javascript">
+ window.addEventListener('click', function(event) {
+    const modal = document.getElementById('modelConfirm');
+    if (event.target === modal) {
+        closeModal('modelConfirm');
+    }
+});
+     window.openModal = function (modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('show');
+    modal.style.display = 'block';
+    document.body.classList.add('overflow-y-hidden');
+};
+
+window.closeModal = function (modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.classList.remove('overflow-y-hidden');
+    }, 100); // Задержка должна совпадать с длительностью анимации
+};
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Останавливаем отправку формы
+    
+    const nameInput = this.querySelector('[name="Name"]');
+    const phoneInput = this.querySelector('[name="Phone"]');
+    let isValid = true;
+
+    // Проверка поля Name
+    if (!nameInput.value.trim()) {
+        isValid = false;
+        nameInput.classList.add('border-red-500'); // Подсвечиваем поле красным
+    } else {
+        nameInput.classList.remove('border-red-500');
+    }
+
+    // Проверка поля Phone
+    const phoneRegex = /^\+7\s?\d{3}\s?\d{3}\s?\d{2}\s?\d{2}$/; // Формат +7 999 999 99 99
+    if (!phoneRegex.test(phoneInput.value.trim())) {
+        isValid = false;
+        phoneInput.classList.add('border-red-500');
+    } else {
+        phoneInput.classList.remove('border-red-500');
+    }
+});
+
+ </script>

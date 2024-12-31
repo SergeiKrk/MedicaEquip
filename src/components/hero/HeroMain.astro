@@ -3,6 +3,7 @@ import ButtonMain from "@components/base/ButtonMain.astro";
 import HeroMainModuleOne from "@components/hero/HeroMainModuleOne.astro";
 import { Image } from "astro:assets";
 import Hero from '../../../public/img/illustrations/doctor-hero.png' 
+import Modal from "@components/content/Modal.astro";
 ---
 
 <div
@@ -33,9 +34,7 @@ import Hero from '../../../public/img/illustrations/doctor-hero.png'
             <div
               class="w-full flex items-center justify-center ltablet:justify-start lg:justify-start gap-2"
             >
-              <ButtonMain to={"/"} class="'min-w-[130px]'"
-                >Запросить КП</ButtonMain
-              >
+              <Modal name="Главный экран"/>
             </div>
           </div>
         </div>

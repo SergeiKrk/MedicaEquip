@@ -14,6 +14,7 @@
     </span>
     <span>Всё</span>
   </button>
+
   <button
     class="group flex-1 flex items-center px-5 py-3 whitespace-nowrap font-sans text-muted-800 dark:text-muted-100 hover:bg-muted-50 dark:hover:bg-muted-700 transition-colors duration-300"
     :class="activeCategory === 'tomo' ? 'bg-muted-50 dark:bg-muted-700' : ''"
@@ -44,19 +45,6 @@
 
   <button
     class="group flex-1 flex items-center px-5 py-3 whitespace-nowrap font-sans text-muted-800 dark:text-muted-100 hover:bg-muted-50 dark:hover:bg-muted-700 transition-colors duration-300"
-    :class="activeCategory === 'neurology' ? 'bg-muted-50 dark:bg-muted-700' : ''"
-    @click="activeCategory = 'neurology'"
-  >
-    <span
-      class="flex items-center justify-center h-10 w-10"
-      :class="activeCategory === 'neurology' ? 'text-rose-500' : 'text-muted-400 group-hover:text-primary-500'"
-    >
-      <iconify-icon class="iconify w-6 h-6 flex items-center justify-center text-2xl" icon="ph:brain-duotone"></iconify-icon>
-    </span>
-    <span>Нейрохирургия</span>
-  </button>
-  <button
-    class="group flex-1 flex items-center px-5 py-3 whitespace-nowrap font-sans text-muted-800 dark:text-muted-100 hover:bg-muted-50 dark:hover:bg-muted-700 transition-colors duration-300"
     :class="activeCategory === 'acush' ? 'bg-muted-50 dark:bg-muted-700' : ''"
     @click="activeCategory = 'acush'"
   >
@@ -68,6 +56,7 @@
     </span>
     <span>Акушерство</span>
   </button>
+
   <button
     class="group flex-1 flex items-center px-5 py-3 whitespace-nowrap font-sans text-muted-800 dark:text-muted-100 hover:bg-muted-50 dark:hover:bg-muted-700 transition-colors duration-300"
     :class="activeCategory === 'hirurg' ? 'bg-muted-50 dark:bg-muted-700' : ''"
@@ -80,6 +69,20 @@
       <iconify-icon class="iconify w-6 h-6 flex items-center justify-center text-2xl" icon="medical-icon:i-surgery"></iconify-icon>
     </span>
     <span>Хирургия</span>
+  </button>
+  
+  <button
+    class="group flex-1 flex items-center px-5 py-3 whitespace-nowrap font-sans text-muted-800 dark:text-muted-100 hover:bg-muted-50 dark:hover:bg-muted-700 transition-colors duration-300"
+    :class="activeCategory === 'neurology' ? 'bg-muted-50 dark:bg-muted-700' : ''"
+    @click="activeCategory = 'neurology'"
+  >
+    <span
+      class="flex items-center justify-center h-10 w-10"
+      :class="activeCategory === 'neurology' ? 'text-rose-500' : 'text-muted-400 group-hover:text-primary-500'"
+    >
+      <iconify-icon class="iconify w-6 h-6 flex items-center justify-center text-2xl" icon="ph:brain-duotone"></iconify-icon>
+    </span>
+    <span>Нейрохирургия</span>
   </button>
 
   <button
