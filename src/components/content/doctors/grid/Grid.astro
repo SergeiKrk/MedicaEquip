@@ -15,9 +15,10 @@ import Acush2 from '../../../../../public/img/uzi-apparat-vivid-iq-premium.png'
 import Acush3 from '../../../../../public/img/uzi-apparat-logiq-p9.png' 
 import otsasyvatel from '../../../../../public/img/otsasyvatel-hirurgicheskij-vacuson-18.png' 
 import inkubator from '../../../../../public/img/inkubator-transformer-drager-babyleo-tn500.png' 
-import ModalHover from "@components/content/ModalHover.astro";
+import ModalHover from "@components/content/InvisForm.astro";
 
 type cards = {
+  id: number
   catergory: string
   title: string
   img: ImageMetadata
@@ -29,6 +30,7 @@ type cards = {
 
 const cards:cards[] = [
   {
+    id: 1,
     catergory: 'tomo',
     title: 'Компьютерный томограф Philips iCT Family',
     img: Thomo,
@@ -38,6 +40,7 @@ const cards:cards[] = [
     rating: '4.8',
   },
   {
+    id: 2,
     catergory: 'oftal',
     title: 'Корнеальный топограф TMS-4N',
     img: Oftal,
@@ -47,6 +50,7 @@ const cards:cards[] = [
     rating: '5',
   },
   {
+    id: 3,
     catergory: 'hirurg',
     title: 'Монитор пациента Carescape B450',
     img: Hirurg,
@@ -56,6 +60,7 @@ const cards:cards[] = [
     rating: '5',
   },
   {
+    id: 4,
     catergory: 'neonat',
     title: 'Инкубатор для новорожденных Isolette 8000 Plus',
     img: Neonat,
@@ -65,6 +70,7 @@ const cards:cards[] = [
     rating: '5',
   },
   {
+    id: 5,
     catergory: 'neurology',
     title: 'Ретракционная система DORO LUNA',
     img: retrakcionnaya,
@@ -74,6 +80,7 @@ const cards:cards[] = [
     rating: '4.7',
   },
   {
+    id: 6,
     catergory: 'tomo',
     title: 'Магнитно-резонансный томограф SIGNA Architect 3T',
     img: Thomo2,
@@ -83,6 +90,7 @@ const cards:cards[] = [
     rating: '4.9',
   },
   {
+    id: 7,
     catergory: 'acush',
     title: 'Электрогидравлический операционный стол HyBase 6100',
     img: Acush,
@@ -92,6 +100,7 @@ const cards:cards[] = [
     rating: '4.9',
   },
   {
+    id: 8,
     catergory: 'tomo',
     title: 'Томограф компьютерный Optima CT520',
     img: Thomo3,
@@ -101,6 +110,7 @@ const cards:cards[] = [
     rating: '4.8',
   },
   {
+    id: 9,
     catergory: 'acush',
     title: 'УЗИ аппарат Vivid iq Premium',
     img: Acush2,
@@ -110,6 +120,7 @@ const cards:cards[] = [
     rating: '4.9',
   },
   {
+    id: 10,
     catergory: 'hirurg',
     title: 'Отсасыватель хирургический Vacuson 18',
     img: otsasyvatel,
@@ -119,6 +130,7 @@ const cards:cards[] = [
     rating: '5',
   },
   {
+    id: 11,
     catergory: 'acush',
     title: 'УЗИ-аппарат Logiq P9',
     img: Acush3,
@@ -128,6 +140,7 @@ const cards:cards[] = [
     rating: '4.9',
   },
   {
+    id: 12,
     catergory: 'oftal',
     title: 'Оптический биометр и кератотопограф OA-2000',
     img: Oftal2,
@@ -137,6 +150,7 @@ const cards:cards[] = [
     rating: '5',
   },
   {
+    id: 13,
     catergory: 'neonat',
     title: 'Инкубатор-трансформер Drager Babyleo® TN500',
     img: inkubator,
@@ -146,6 +160,7 @@ const cards:cards[] = [
     rating: '5',
   },
   {
+    id: 14,
     catergory: 'oftal',
     title: 'Ультразвуковой диагностический А-скан с датчиком биометрии и пахиметрии Tomey AL-4000',
     img: Oftal3,
@@ -200,8 +215,8 @@ const cards:cards[] = [
                     >{card.rating}</span
                   >
                 </div>
-                <ModalHover name2={card.title} />
               </div>
+              <ModalHover name2={card.title} id={card.id} />
             </Card>
           </div>
         ) }
@@ -244,8 +259,8 @@ const cards:cards[] = [
                     >{card.rating}</span
                   >
                 </div>
-                <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
-              </div>
+                </div>
+                <ModalHover name2={card.title} id={card.id} />
             </Card>
           </div>
         ) }
@@ -288,8 +303,8 @@ const cards:cards[] = [
                     >{card.rating}</span
                   >
                 </div>
-                <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
               </div>
+              <ModalHover name2={card.title} id={card.id} />
             </Card>
           </div>
         ) }
@@ -332,8 +347,8 @@ const cards:cards[] = [
                     >{card.rating}</span
                   >
                 </div>
-                <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
               </div>
+              <ModalHover name2={card.title} id={card.id} />
             </Card>
           </div>
         ) }
@@ -376,8 +391,8 @@ const cards:cards[] = [
                     >{card.rating}</span
                   >
                 </div>
-                <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
               </div>
+              <ModalHover name2={card.title} id={card.id} />
             </Card>
           </div>
         ) }
@@ -420,8 +435,8 @@ const cards:cards[] = [
                     >{card.rating}</span
                   >
                 </div>
-                <a href="/" class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" :class="'min-w-[100px]'" data-astro-source-file="C:/Users/ksv/jsDev/dokto-main/src/components/base/ButtonMain.astro" data-astro-source-loc="9:2"> Запросить КП </a>
               </div>
+              <ModalHover name2={card.title} id={card.id} />
             </Card>
           </div>
         ) }

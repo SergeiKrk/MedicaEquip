@@ -1,15 +1,15 @@
 ---
-const {name2} = Astro.props
+const {name2,id} = Astro.props
 ---
-<button class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" onclick="openModal('modelConfirm')">
+<button class="relative font-sans font-normal items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 px-4 py-4 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition duration-300 min-w-[130px] hidden group-hover:block" onclick="openModal('modelConfirm2')">
     Запросить КП
  </button>
  
- <div id="modelConfirm" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
+ <div id="modelConfirm2" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-full px-4 ">
      <div class="relative mt-[25%] lg:mt-[15%] mx-auto shadow-xl rounded-md bg-white max-w-xs">
  
          <div class="flex justify-end p-2">
-             <button onclick="closeModal('modelConfirm')" type="button"
+             <button onclick="closeModal2('modelConfirm2')" type="button"
                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path fill-rule="evenodd"
@@ -73,9 +73,9 @@ const {name2} = Astro.props
  
  <script type="text/javascript">
  window.addEventListener('click', function(event) {
-    const modal = document.getElementById('modelConfirm');
+    const modal = document.getElementById('modelConfirm2');
     if (event.target === modal) {
-        closeModal('modelConfirm');
+        closeModal2('modelConfirm2');
     }
 });
      window.openModal = function (modalId) {
@@ -85,7 +85,7 @@ const {name2} = Astro.props
     document.body.classList.add('overflow-y-hidden');
 };
 
-window.closeModal = function (modalId) {
+window.closeModal2 = function (modalId) {
     const modal = document.getElementById(modalId);
     modal.classList.remove('show');
     setTimeout(() => {
