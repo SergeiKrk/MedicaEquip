@@ -10,6 +10,9 @@ import Oftal2 from '../../../../../public/img/opticheskij-biometr-i-keratotopogr
 import Oftal3 from '../../../../../public/img/ultrazvukovoj-diagnosticheskij-a-skan-tomey-al-4000.png' 
 import retrakcionnaya from '../../../../../public/img/retrakcionnaya-sistema-doro-luna.png' 
 import Hirurg from '../../../../../public/img/monitor-pacienta-carescape-b450.png' 
+import Hirurg1 from '../../../../../public/img/igla-dooperacionnaya-s-dvojnym-kryuchkom.png' 
+import Hirurg2 from '../../../../../public/img/nabor-igl-s-kryuchkom-dlya-lokalizacii-v-molochnoj-zheleze-mammorep.png' 
+import Hirurg3 from '../../../../../public/img/igla-marker-dlya-prodolzhitelnogo-monitoringa-opuholi.png' 
 import Acush from '../../../../../public/img/ehlektrogidravlicheskij-operacionnyj-stol-hybase-6100.png' 
 import Acush2 from '../../../../../public/img/uzi-apparat-vivid-iq-premium.png' 
 import Acush3 from '../../../../../public/img/uzi-apparat-logiq-p9.png' 
@@ -29,6 +32,16 @@ type cards = {
 }
 
 const cards:cards[] = [
+  {
+    id: 0,
+    catergory: 'hirurg',
+    title: 'Игла дооперационная с двойным крючком',
+    img: Hirurg1,
+    text: 'Игла-маркер ZBL для маммологии используется под УЗИ-контролем для локализации кист и опухолей перед их хирургическим удалением. Особенности: Z-форма для устойчивости, биомедицинская сталь, удобная рукоять, стерильная упаковка.',
+    contry: 'Япония',
+    availability: '🟢 В наличии',
+    rating: '5',
+  },
   {
     id: 1,
     catergory: 'tomo',
@@ -169,6 +182,26 @@ const cards:cards[] = [
     availability: '🟡 Под заказ',
     rating: '5',
   },
+  {
+    id: 15,
+    catergory: 'hirurg',
+    title: 'Набор игл с крючком для локализации в молочной железе Mammorep',
+    img: Hirurg2,
+    text: 'Набор игл MAMMOREP® предназначен для локализации поражений в молочной железе. Доступны модели с V-образным (21G) и Z-образным (20G) крючками, предотвращающими смещение. Особенности: сантиметровая разметка, скользящий стопор, стерильность.',
+    contry: 'Япония',
+    availability: '🟢 В наличии',
+    rating: '5',
+  },
+  {
+    id: 16,
+    catergory: 'hirurg',
+    title: 'Игла-маркер для продолжительного мониторинга опухоли',
+    img: Hirurg3,
+    text: 'Игла-маркер SENTINEL для маммологии предназначена для локализации опухолей и наблюдения за ними перед терапией. Оснащена титановым маркером с УЗИ-контролем, легко читаемой разметкой и кнопкой подачи. Стерильно.',
+    contry: 'Япония',
+    availability: '🟢 В наличии',
+    rating: '5',
+  },
 ]
 ---
 
@@ -176,6 +209,7 @@ const cards:cards[] = [
   {
     cards.map((card:any)=>(
       <>
+        
         {(card.catergory === 'tomo') && (
           <div x-show="activeCategory === 'all' || activeCategory === 'tomo'">
             <Card class="'p-4 group'">
