@@ -9,7 +9,7 @@ const {name} = Astro.props
      <div class="relative mt-[25%] lg:mt-[15%] mx-auto shadow-xl rounded-md bg-white max-w-xs">
  
          <div class="flex justify-end p-2">
-             <button onclick="closeModal('modelConfirm')" type="button"
+             <button aria-label="evenodd" onclick="closeModal('modelConfirm')" type="button"
                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path fill-rule="evenodd"
@@ -18,13 +18,13 @@ const {name} = Astro.props
                  </svg>
              </button>
          </div>
- 
          <div class="p-6 pt-0 text-center">
-            <form class="w-full ltablet:w-auto lg:w-auto flex flex-col items-center justify-center md:justify-start gap-y-2" name={name}>
+            <form  action="/send.php" method="POST" class="w-full ltablet:w-auto lg:w-auto flex flex-col items-center justify-center md:justify-start gap-y-2" name={name}>
+              <input type="hidden" name="FormName" value={name}>
                 <div class="relative w-full">
                   <input
                     type="text"
-                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    class="w-full h-10 bg-muted-100 bg-opacity-50 rounded-lg border border-muted-300 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
                     placeholder="Имя"
                     name="Name"
                   />
@@ -32,7 +32,7 @@ const {name} = Astro.props
                 <div class="relative w-full">
                   <input
                     type="number"
-                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    class="w-full h-10 bg-muted-100 bg-opacity-50 rounded-lg border border-muted-300 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
                     placeholder="+7 999 999 99 99"
                     name="Phone"
                   />
@@ -40,7 +40,7 @@ const {name} = Astro.props
                 <div class="relative w-full">
                   <input
                     type="email"
-                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    class="w-full h-10 bg-muted-100 bg-opacity-50 rounded-lg border border-muted-300 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
                     placeholder="Ваша почта"
                     name="Mail"
                   />
@@ -48,7 +48,7 @@ const {name} = Astro.props
                 <div class="relative w-full">
                   <input
                     type="text"
-                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    class="w-full h-10 bg-muted-100 bg-opacity-50 rounded-lg border border-muted-300 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
                     placeholder="Город"
                     name="Cite"
                   />
@@ -56,16 +56,16 @@ const {name} = Astro.props
                 <div class="relative w-full">
                   <input
                     type="text"
-                    class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+                    class="w-full h-10 bg-muted-100 bg-opacity-50 rounded-lg border border-muted-300 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
                     placeholder="ИНН"
                     name="INN"
                   />
                 </div>
-                <button
+                <button aria-label=`zakaz ${name}`
                   class="w-full h-10 inline-flex items-center justify-center text-white bg-primary-600 border-0 py-2 px-6 focus:outline-none hover:bg-primary-700 rounded-lg"
                   >Заказать</button
                 >
-                <p class="text-xs">Нажимая на кнопку Вы соглашаетесь c <a href="/politika-konfidencialnosti.pdf">политикой конфиденциальности</a></p>
+                <p class="text-xs dark:text-muted-300">Нажимая на кнопку Вы соглашаетесь c <a href="/politika-konfidencialnosti.pdf">политикой конфиденциальности</a></p>
               </form>
          </div>
  
@@ -94,29 +94,30 @@ window.closeModal = function (modalId) {
         document.body.classList.remove('overflow-y-hidden');
     }, 100); // Задержка должна совпадать с длительностью анимации
 };
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Останавливаем отправку формы
+// document.querySelector('form').addEventListener('submit', function (e) {
+//     e.preventDefault(); // Останавливаем отправку формы
     
-    const nameInput = this.querySelector('[name="Name"]');
-    const phoneInput = this.querySelector('[name="Phone"]');
-    let isValid = true;
+//     const nameInput = this.querySelector('[name="Name"]');
+//     const phoneInput = this.querySelector('[name="Phone"]');
+//     let isValid = true;
 
-    // Проверка поля Name
-    if (!nameInput.value.trim()) {
-        isValid = false;
-        nameInput.classList.add('border-red-500'); // Подсвечиваем поле красным
-    } else {
-        nameInput.classList.remove('border-red-500');
-    }
+//     // Проверка поля Name
+//     if (!nameInput.value.trim()) {
+//         isValid = false;
+//         nameInput.classList.add('border-red-500'); // Подсвечиваем поле красным
+//     } else {
+//         nameInput.classList.remove('border-red-500');
+//     }
 
-    // Проверка поля Phone
-    const phoneRegex = /^\+7\s?\d{3}\s?\d{3}\s?\d{2}\s?\d{2}$/; // Формат +7 999 999 99 99
-    if (!phoneRegex.test(phoneInput.value.trim())) {
-        isValid = false;
-        phoneInput.classList.add('border-red-500');
-    } else {
-        phoneInput.classList.remove('border-red-500');
-    }
-});
+//     // Проверка поля Phone
+//     const phoneRegex = /^\+7\s?\d{3}\s?\d{3}\s?\d{2}\s?\d{2}$/; // Формат +7 999 999 99 99
+//     if (!phoneRegex.test(phoneInput.value.trim())) {
+//         isValid = false;
+//         phoneInput.classList.add('border-red-500');
+//     } else {
+//         phoneInput.classList.remove('border-red-500');
+//     }
+    
+// });
 
  </script>

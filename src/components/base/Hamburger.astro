@@ -3,6 +3,7 @@ const { class: className } = Astro.props;
 ---
 
 <button
+  aria-label="Aria burger"
   class="flex relative justify-center items-center w-10 h-10 focus:outline-none lg:hidden scale-90"
   :class={className}
   @click="$store.app.mobileOpen = !$store.app.mobileOpen"

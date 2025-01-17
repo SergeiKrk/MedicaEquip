@@ -18,7 +18,6 @@ import Modal from "@components/content/Modal.astro";
           <div
             class="text-center ltablet:text-left lg:text-left font-sans space-y-4 pt-14 font-light"
           >
-            <!-- <p class="lg:mt-1 mb-4 ml-[2px] text-muted-700 dark:text-white text-md">ИП Антонов</p> -->
             <p
               class="font-medium leading-[50px] text-3xl ptablet:text-4xl lg:text-[56px] mt-12 lg:mt-1 mb-8 text-muted-800 dark:text-white uppercase"
             >
@@ -41,7 +40,8 @@ import Modal from "@components/content/Modal.astro";
         </div>
       </div>
       <div class="relative col-span-12 ltablet:col-span-7 lg:col-span-7">
-        <Image src={Hero} 
+        <Image src={Hero}
+        loading="eager" 
         class="block w-full ltablet:max-w-[540px] max-w-[620px] mx-auto pr-8"
         alt="Hero image"/>
         <!-- Decoration -->

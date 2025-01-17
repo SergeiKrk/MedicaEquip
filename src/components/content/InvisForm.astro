@@ -2,28 +2,31 @@
 const {name2} = Astro.props
 ---
 <div class="hidden group-hover:block mt-8 text-center">
-  <form class="w-full ltablet:w-auto lg:w-auto flex flex-col items-center justify-center md:justify-start gap-y-2" name={name2}>
+  <form action="/send.php" method="POST" class="w-full ltablet:w-auto lg:w-auto flex flex-col items-center justify-center md:justify-start gap-y-2" name={name2}>
+    <input type="hidden" name="FormName" value={name2}>
       <div class="relative w-full">
         <input
           type="text"
-          class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+          class="w-full h-10 bg-muted-100 bg-opacity-50 rounded-lg border border-muted-300 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
           placeholder="Имя"
           name="Name"
+          required 
         />
       </div>
       <div class="relative w-full">
         <input
           type="number"
-          class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+          class="w-full h-10 bg-muted-100 bg-opacity-50 rounded-lg border border-muted-300 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
           placeholder="+7 999 999 99 99"
           name="Phone"
+          required 
         />
       </div>
-      <button
+      <button aria-label=`zakazat ${name2}`
         class="w-full h-10 inline-flex items-center justify-center text-white bg-primary-600 border-0 py-2 px-6 focus:outline-none hover:bg-primary-700 rounded-lg"
         >Заказать</button
       >
       
-      <p class="text-xs">Нажимая на кнопку Вы соглашаетесь c <a href="/politika-konfidencialnosti.pdf">политикой конфиденциальности</a></p>
+      <p class="text-xs dark:text-muted-300">Нажимая на кнопку Вы соглашаетесь c <a href="/politika-konfidencialnosti.pdf">политикой конфиденциальности</a></p>
     </form>
 </div>
